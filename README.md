@@ -1,2 +1,458 @@
-# -portfolio-
-My Personal Portfolio
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataVantage Analytics - Unlock Your Data's Potential</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a1a;
+            color: #e0e0e0;
+        }
+        /* Style for the 3D canvas background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        /* Custom gradient text */
+        .gradient-text {
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        /* Scroll-triggered animation setup */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Add a subtle glow to cards on hover */
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #38bdf8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea5e9;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- 3D Animated Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-md border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">DataVantage</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#services" class="hover:text-sky-400 transition-colors">Services</a>
+                <a href="#process" class="hover:text-sky-400 transition-colors">Process</a>
+                <a href="#about" class="hover:text-sky-400 transition-colors">About</a>
+                <a href="#contact" class="hover:text-sky-400 transition-colors">Contact</a>
+            </nav>
+            <a href="#contact" class="hidden md:block bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-lg transition-transform hover:scale-105">
+                Get Started
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-2xl">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+         <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#services" class="block py-2 hover:text-sky-400">Services</a>
+            <a href="#process" class="block py-2 hover:text-sky-400">Process</a>
+            <a href="#about" class="block py-2 hover:text-sky-400">About</a>
+            <a href="#contact" class="block py-2 hover:text-sky-400">Contact</a>
+             <a href="#contact" class="block mt-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-lg text-center">
+                Get Started
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="h-screen flex items-center justify-center text-center relative">
+            <div class="z-10 px-4">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight animate-on-scroll">
+                    Unlock Potential with <span class="gradient-text">Data-Driven Insights</span>
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-300 mb-8 animate-on-scroll" style="transition-delay: 0.2s;">
+                    We transform your complex data into clear, actionable strategies for growth, efficiency, and innovation.
+                </p>
+                <a href="#services" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform hover:scale-105 animate-on-scroll" style="transition-delay: 0.4s;">
+                    Explore Our Services
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 lg:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold animate-on-scroll">Our Core Services</h2>
+                    <p class="text-lg text-gray-400 mt-2 animate-on-scroll" style="transition-delay: 0.1s;">Solutions tailored to your business needs.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="service-card bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 transition-all duration-300 animate-on-scroll">
+                        <div class="text-sky-400 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Data Analytics</h3>
+                        <p class="text-gray-400">We dive deep into your datasets to uncover trends, patterns, and opportunities you might have missed.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="service-card bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 transition-all duration-300 animate-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="text-sky-400 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Financial Analysis</h3>
+                        <p class="text-gray-400">Optimize financial performance with predictive modeling, risk assessment, and investment analysis.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="service-card bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 transition-all duration-300 animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="text-sky-400 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Marketing Analytics</h3>
+                        <p class="text-gray-400">Understand customer behavior, measure campaign ROI, and personalize marketing efforts for maximum impact.</p>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="service-card bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 transition-all duration-300 animate-on-scroll" style="transition-delay: 0.3s;">
+                        <div class="text-sky-400 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Business Analytics</h3>
+                        <p class="text-gray-400">Enhance operational efficiency and strategic decision-making through comprehensive business intelligence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-20 lg:py-32 bg-gray-900/30">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold animate-on-scroll">Our Proven Process</h2>
+                    <p class="text-lg text-gray-400 mt-2 animate-on-scroll" style="transition-delay: 0.1s;">From Data to Decision in Four Steps.</p>
+                </div>
+                <div class="relative">
+                    <!-- The connecting line -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-700 -translate-y-1/2"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
+                        <!-- Step 1 -->
+                        <div class="text-center animate-on-scroll">
+                            <div class="w-20 h-20 bg-gray-800 border-2 border-sky-500 rounded-full flex items-center justify-center mx-auto mb-4 text-sky-400 text-3xl font-bold">1</div>
+                            <h3 class="text-xl font-semibold mb-2">Discovery</h3>
+                            <p class="text-gray-400">We start by understanding your goals and collecting relevant data sources.</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="text-center animate-on-scroll" style="transition-delay: 0.15s;">
+                            <div class="w-20 h-20 bg-gray-800 border-2 border-sky-500 rounded-full flex items-center justify-center mx-auto mb-4 text-sky-400 text-3xl font-bold">2</div>
+                            <h3 class="text-xl font-semibold mb-2">Analysis</h3>
+                            <p class="text-gray-400">Our experts clean, model, and analyze your data using advanced techniques.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="text-center animate-on-scroll" style="transition-delay: 0.3s;">
+                            <div class="w-20 h-20 bg-gray-800 border-2 border-sky-500 rounded-full flex items-center justify-center mx-auto mb-4 text-sky-400 text-3xl font-bold">3</div>
+                            <h3 class="text-xl font-semibold mb-2">Insight</h3>
+                            <p class="text-gray-400">We translate findings into actionable insights and clear visualizations.</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="text-center animate-on-scroll" style="transition-delay: 0.45s;">
+                            <div class="w-20 h-20 bg-gray-800 border-2 border-sky-500 rounded-full flex items-center justify-center mx-auto mb-4 text-sky-400 text-3xl font-bold">4</div>
+                            <h3 class="text-xl font-semibold mb-2">Strategy</h3>
+                            <p class="text-gray-400">We deliver a strategic roadmap to help you implement changes and track success.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 lg:py-32">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                     <div class="lg:w-1/2 animate-on-scroll">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Why <span class="gradient-text">DataVantage</span>?</h2>
+                        <p class="text-gray-300 mb-6">At DataVantage Analytics, we're more than just analysts; we're your strategic partners. Our mission is to democratize data science, making powerful insights accessible to businesses of all sizes. We believe that the right data, analyzed correctly, is the most valuable asset for navigating the complexities of the modern market.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-sky-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span><span class="font-semibold">Expert Team:</span> Our team consists of seasoned data scientists, financial analysts, and business strategists.</span>
+                            </li>
+                            <li class="flex items-start">
+                                 <svg class="w-6 h-6 text-sky-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span><span class="font-semibold">Cutting-Edge Tech:</span> We leverage the latest in AI, machine learning, and cloud computing.</span>
+                            </li>
+                             <li class="flex items-start">
+                                 <svg class="w-6 h-6 text-sky-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span><span class="font-semibold">Measurable ROI:</span> We focus on delivering solutions that provide a clear and measurable return on investment.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="lg:w-1/2 animate-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="bg-gray-800/50 p-4 rounded-xl shadow-2xl border border-gray-700">
+                             <img src="https://placehold.co/600x400/0f172a/38bdf8?text=Data+Visualization" alt="Data Visualization" class="rounded-lg w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 lg:py-32 bg-gray-900/30">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold animate-on-scroll">Let's Build Your Future</h2>
+                    <p class="text-lg text-gray-400 mt-2 animate-on-scroll" style="transition-delay: 0.1s;">Ready to harness the power of your data? Get in touch with us today.</p>
+                </div>
+                <div class="max-w-2xl mx-auto">
+                    <!-- UPDATE: Form action is now LIVE with your Formspree link -->
+                    <form action="https://formspree.io/f/mjkokqwq" method="POST" class="space-y-6 animate-on-scroll">
+                        <div>
+                            <label for="name" class="sr-only">Name</label>
+                            <input type="text" name="name" id="name" placeholder="Your Name" required class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-sky-500 transition">
+                        </div>
+                        <div>
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Your Email" required class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-sky-500 transition">
+                        </div>
+                        <div>
+                            <label for="service" class="sr-only">Service</label>
+                            <select id="service" name="service" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-sky-500 transition">
+                                <option>Select a Service</option>
+                                <option>Data Analytics</option>
+                                <option>Financial Analysis</option>
+                                <option>Marketing Analytics</option>
+                                <option>Business Analytics</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="sr-only">Message</label>
+                            <textarea name="message" id="message" rows="4" placeholder="Your Message" required class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-sky-500 transition"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-12 rounded-full text-lg transition-transform hover:scale-105">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <div class="flex justify-center items-center space-x-6 mb-6">
+                <a href="mailto:ankushptdrr@gmail.com" class="hover:text-sky-400 transition-colors flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>ankushptdrr@gmail.com</span>
+                </a>
+                <a href="https://linkedin.com/in/ankush-patidar-488339244" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+            <p>&copy; 2024 DataVantage Analytics. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script type="module">
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Scroll-triggered Animations ---
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        animatedElements.forEach(el => observer.observe(el));
+
+        // --- Three.js Animated Background ---
+        let scene, camera, renderer, particles, lines;
+        const PARTICLE_COUNT = 150;
+        const MAX_DISTANCE = 100;
+        let mouseX = 0, mouseY = 0;
+        let windowHalfX = window.innerWidth / 2;
+        let windowHalfY = window.innerHeight / 2;
+
+        function init() {
+            // Scene
+            scene = new THREE.Scene();
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+            camera.position.z = 400;
+
+            // Renderer
+            const canvas = document.getElementById('bg-canvas');
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // Particles
+            const positions = new Float32Array(PARTICLE_COUNT * 3);
+            const velocities = new Float32Array(PARTICLE_COUNT * 3);
+
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                positions[i * 3] = (Math.random() * 2 - 1) * 500;
+                positions[i * 3 + 1] = (Math.random() * 2 - 1) * 500;
+                positions[i * 3 + 2] = (Math.random() * 2 - 1) * 500;
+
+                velocities[i * 3] = (Math.random() - 0.5) * 0.5;
+                velocities[i * 3 + 1] = (Math.random() - 0.5) * 0.5;
+                velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.5;
+            }
+
+            const particleGeometry = new THREE.BufferGeometry();
+            particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            particleGeometry.setAttribute('velocity', new THREE.BufferAttribute(velocities, 3));
+
+            const particleMaterial = new THREE.PointsMaterial({
+                color: 0x38bdf8,
+                size: 2,
+                transparent: true,
+                blending: THREE.AdditiveBlending,
+                sizeAttenuation: true
+            });
+
+            particles = new THREE.Points(particleGeometry, particleMaterial);
+            scene.add(particles);
+
+            // Lines
+            const lineGeometry = new THREE.BufferGeometry();
+            const linePositions = new Float32Array(PARTICLE_COUNT * PARTICLE_COUNT * 3);
+            lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+            
+            const lineMaterial = new THREE.LineBasicMaterial({
+                color: 0x818cf8,
+                transparent: true,
+                opacity: 0.1
+            });
+
+            lines = new THREE.LineSegments(lineGeometry, lineMaterial);
+            scene.add(lines);
+
+            // Event Listeners
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+            window.addEventListener('resize', onWindowResize, false);
+        }
+
+        function onWindowResize() {
+            windowHalfX = window.innerWidth / 2;
+            windowHalfY = window.innerHeight / 2;
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function onDocumentMouseMove(event) {
+            mouseX = event.clientX - windowHalfX;
+            mouseY = event.clientY - windowHalfY;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Animate Particles
+            const positions = particles.geometry.attributes.position.array;
+            const velocities = particles.geometry.attributes.velocity.array;
+
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                positions[i * 3] += velocities[i * 3];
+                positions[i * 3 + 1] += velocities[i * 3 + 1];
+                positions[i * 3 + 2] += velocities[i * 3 + 2];
+
+                // Boundary check
+                if (positions[i * 3 + 1] < -500 || positions[i * 3 + 1] > 500) velocities[i * 3 + 1] = -velocities[i * 3 + 1];
+                if (positions[i * 3] < -500 || positions[i * 3] > 500) velocities[i * 3] = -velocities[i * 3];
+                if (positions[i * 3 + 2] < -500 || positions[i * 3 + 2] > 500) velocities[i * 3 + 2] = -velocities[i * 3 + 2];
+            }
+            particles.geometry.attributes.position.needsUpdate = true;
+
+            // Animate Lines
+            const linePositions = lines.geometry.attributes.position.array;
+            let vertexpos = 0;
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                for (let j = i + 1; j < PARTICLE_COUNT; j++) {
+                    const dx = positions[i * 3] - positions[j * 3];
+                    const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
+                    const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
+                    const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+                    if (dist < MAX_DISTANCE) {
+                        linePositions[vertexpos++] = positions[i * 3];
+                        linePositions[vertexpos++] = positions[i * 3 + 1];
+                        linePositions[vertexpos++] = positions[i * 3 + 2];
+                        linePositions[vertexpos++] = positions[j * 3];
+                        linePositions[vertexpos++] = positions[j * 3 + 1];
+                        linePositions[vertexpos++] = positions[j * 3 + 2];
+                    }
+                }
+            }
+            lines.geometry.setDrawRange(0, vertexpos / 3);
+            lines.geometry.attributes.position.needsUpdate = true;
+
+            // Animate Camera
+            camera.position.x += (mouseX - camera.position.x) * 0.0005;
+            camera.position.y += (-mouseY - camera.position.y) * 0.0005;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+        }
+
+        init();
+        animate();
+    </script>
+</body>
+</html>
